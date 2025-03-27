@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>Таро и Астроконультации</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        header {
+            background: #2c2c2c;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        h1 {
+            flex-grow: 1;
+            margin: 0;
+            font-size: 20px;
+        }
+        .button, .language-switch {
+            background: #6a1b9a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .language-switch {
+            border: 2px solid white;
+            background: none;
+        }
+        .button:hover, .language-switch:hover {
+            background-color: #4a148c;
+            color: #fff;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        #price-section {
+            display: none;
+            margin-top: 20px;
+            text-align: left;
+        }
+        footer {
+            background: #2c2c2c;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        let currentLang = 'ru';
+        function switchLanguage() {
+            currentLang = currentLang === 'ru' ? 'en' : 'ru';
+            document.documentElement.lang = currentLang;
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                el.style.display = el.getAttribute('data-lang') === currentLang ? 'block' : 'none';
+            });
+            document.getElementById('lang-btn').innerText = currentLang === 'ru' ? 'ENG' : 'РУС';
+            document.getElementById('price-btn').innerText = currentLang === 'ru' ? '💰 Прайс' : '💰 Price';
+        }
+        function togglePrice() {
+            const price = document.getElementById('price-section');
+            price.style.display = price.style.display === 'none' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <button class="button" id="price-btn" onclick="togglePrice()">💰 Прайс</button>
+        <h1 data-lang="ru">Консультации на картах Таро и астропсихологические разборы</h1>
+        <h1 data-lang="en" style="display:none;">Tarot Readings and Astrological Consultations</h1>
+        <button class="language-switch" id="lang-btn" onclick="switchLanguage()">ENG</button>
+    </header>
+
+    <div class="container">
+        <div data-lang="ru">
+            <p><strong>Консультации проходят онлайн. Работаю по предоплате.</strong></p>
+            <p>Для заказа консультации пишите: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yuliya.astroandtaro@gmail.com" target="_blank">yuliya.astroandtaro@gmail.com</a></p>
+            <p>Для консультации нужно:</p>
+            <ul>
+                <li>Ваше фото</li>
+                <li>Дата рождения (желательно со временем и городом рождения)</li>
+                <li>Если расклад касается ещё кого-то — их имя, фото и дата рождения</li>
+                <li>Краткая предыстория темы, что Вас волнует</li>
+            </ul>
+            <p><em>На расклад я беру 2-3 дня, по возможности — быстрее.</em></p>
+        </div>
+        <div data-lang="en" style="display:none;">
+            <p><strong>Consultations are online. I work with prepayment.</strong></p>
+            <p>To book a consultation, write to: <a href="https://mail.google.com/mail/?view=cm&fs=1&to=yuliya.astroandtaro@gmail.com" target="_blank">yuliya.astroandtaro@gmail.com</a></p>
+            <p>What I need from you:</p>
+            <ul>
+                <li>Your photo</li>
+                <li>Date of birth (preferably with time and city)</li>
+                <li>If the reading concerns someone else — their name, photo, date of birth</li>
+                <li>Brief background of the topic that worries you</li>
+            </ul>
+            <p><em>I usually prepare the reading within 2–3 days (or sooner if possible).</em></p>
+        </div>
+
+        <div id="consult-button-ru" data-lang="ru">
+            <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=yuliya.astroandtaro@gmail.com" target="_blank">📩 Записаться на консультацию</a>
+        </div>
+        <div id="consult-button-en" data-lang="en" style="display: none;">
+            <a class="button" href="https://mail.google.com/mail/?view=cm&fs=1&to=yuliya.astroandtaro@gmail.com" target="_blank">📩 Book a Consultation</a>
+        </div>
+
+        <div id="price-section">
+            <div data-lang="ru">
+                <h3>Прайс:</h3>
+                <ul>
+                    <li>Развёрнутый расклад на любую из сфер жизни — 30 $</li>
+                    <li>Расклад 12 сфер жизни (на месяц, полгода, год) — от 40 $</li>
+                    <li>Расклад по трём картам на любой вопрос — 10 $</li>
+                    <li>Ответы на дополнительные вопросы — в течение 24 часов бесплатно</li>
+                </ul>
+            </div>
+            <div data-lang="en" style="display:none;">
+                <h3>Pricing:</h3>
+                <ul>
+                    <li>Detailed reading on any life area — $30</li>
+                    <li>12 Life Spheres Reading (month, half-year, year) — from $40</li>
+                    <li>Three-card spread for any question — $10</li>
+                    <li>Follow-up answers — within 24h at no extra charge</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Таро и Астроконсультации | Все права защищены</p>
+    </footer>
+</body>
+</html>
